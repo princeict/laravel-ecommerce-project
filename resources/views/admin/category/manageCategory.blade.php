@@ -39,6 +39,8 @@
                                     <a href="{{url('/category/delete/'.$category->id)}}" class='btn btn-danger' onclick="return confirm('Are you sure want to delete?')">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </a>
+                                    
+                                     <a  class="btn btn-success" onclick="get_category_info('<?php echo $category->id; ?>','<?php echo $category->categoryName; ?>')" href="javascript:void(0)">Edit</a>                  
                                     <a  class="btn btn-success" onclick="get_category_info_data('<?php echo $index; ?>')" href="javascript:void(0)">Edit</a>                  
                                 </td>
                             </tr>
@@ -86,7 +88,7 @@
 <script type="text/javascript">
     localStorage.setItem('category_info', '<?php echo json_encode($categories) ?>');
 
-    function get_category_info_data(index) {
+    function get_category_info(index) {
 
         var category_info = JSON.parse(localStorage.getItem('category_info'));
 
@@ -96,6 +98,16 @@
         jQuery('input[id=name]').val(category_info[index].categoryName);
 
         console.log(category_info[index]);
+
+    }
+
+    function get_category_info_data(id, name) {
+
+        //var category_info = JSON.parse(localStorage.getItem('category_info'));
+
+        $('#noteModal').modal();
+        jQuery('input[id=id]').val(id);
+        jQuery('input[id=name]').val(name);
 
     }
 </script>

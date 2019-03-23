@@ -49,6 +49,13 @@ class ProductController extends Controller {
     }
 
     public function manageProduct() {
+        //change config/database.php strict true to false
+//        $products = DB::table('products')
+//                ->leftJoin('categories', 'products.categoryId', '=', 'categories.id')
+//                ->leftJoin('manufacturers', 'products.manufacturerId', '=', 'manufacturers.id')
+//                ->select('products.*',DB::raw('SUM(productPrice) as total_sales'), 'categories.categoryName', 'manufacturers.manufacturerName')
+//                ->groupBy('productName')
+//                ->get();
 
         $products = DB::table('products')
                 ->leftJoin('categories', 'products.categoryId', '=', 'categories.id')

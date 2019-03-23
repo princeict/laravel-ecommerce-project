@@ -102,9 +102,6 @@
     }
 
     function get_category_info_data(id, name) {
-
-        //var category_info = JSON.parse(localStorage.getItem('category_info'));
-
         $('#noteModal').modal();
         jQuery('input[id=id]').val(id);
         jQuery('input[id=name]').val(name);

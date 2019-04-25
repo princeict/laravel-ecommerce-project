@@ -92,6 +92,10 @@ Route::group(['middleware' => ['AuthenticateMiddleware']], function () {
      * Order Info
      */
     Route::get('/order/manage', 'OrderController@index');
+
+
+
+    Route::get('/dashboard', 'HomeController@get_product_price');
 });
 
 

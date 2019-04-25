@@ -25,7 +25,8 @@
 
         <!-- Custom Fonts -->
         <link href="{{asset('public/admin/')}}/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
+        <!-- jQuery -->
+        <script src="{{asset('public/admin/')}}/vendor/jquery/jquery.min.js"></script>
     </head>
 
     <body>
@@ -50,8 +51,7 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="{{asset('public/admin/')}}/vendor/jquery/jquery.min.js"></script>
+
 
         <!-- Bootstrap Core JavaScript -->
         <script src="{{asset('public/admin/')}}/vendor/bootstrap/js/bootstrap.min.js"></script>
@@ -66,7 +66,6 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="{{asset('public/admin/')}}/dist/js/sb-admin-2.js"></script>
-
     </body>
 
 </html>

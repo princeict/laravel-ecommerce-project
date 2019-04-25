@@ -97,5 +97,35 @@
             </a>
         </div>
     </div>
+    <div class="col-sm-12">
+        <div class="panel panel">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-9 text-right">
+                        <div class="huge" id="graph_container">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script>
+    jQuery(document).ready(function() {
+        //load ajax chart graph
+        $.ajax({
+            type: "GET",
+            url: '/dashboard',
+            success: function (data)
+            {
+               // alert(data);
+               // console.log(data);
+                jQuery('div[id=graph_container]').html(data);
+            }
+
+        });
+    });
+</script>
 @endsection

@@ -3,16 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
-class HomeController extends Controller
-{
+class HomeController extends Controller {
+
     /**
      * Create a new controller instance.
      *
      * @return void
      */
-    public function __construct()
-    {
+    public function __construct() {
         $this->middleware('auth');
     }
 
@@ -21,8 +21,23 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         return view('admin.home.homeContent');
     }
+
+    public function get_product_price() {
+        $products = DB::table('products')
+                ->select('productPrice')
+                ->get();
+
+        $point_value = array();
+        foreach ($products as $item) {
+            array_push($point_value, $item->productPrice);
+        }
+        
+       dd($point_value);
+
+        return view('admin.home.get_product_price', compact('point_value'));
+    }
+
 }

@@ -43,6 +43,7 @@ Route::get('/customer/customer-home', 'CustomerController@customerHome');
 Auth::routes();
 Route::get('/dashboard', 'HomeController@index');
 
+
 Route::group(['middleware' => ['AuthenticateMiddleware']], function () {
     /*
      * Category Info
@@ -92,10 +93,9 @@ Route::group(['middleware' => ['AuthenticateMiddleware']], function () {
      * Order Info
      */
     Route::get('/order/manage', 'OrderController@index');
+    
+    Route::get('/graph', 'GraphController@get_product_price')->name('graph');
 
-
-
-    Route::get('/dashboard', 'HomeController@get_product_price');
 });
 
 

@@ -113,19 +113,43 @@
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
 <script>
-    jQuery(document).ready(function() {
-        //load ajax chart graph
+    $(function () {
+        //balance();
+        var route_name="{{ url('graph') }}";
+        
         $.ajax({
             type: "GET",
-            url: '/dashboard',
+            url: route_name,
+            timeout: 30000,
+            beforeSend: function (xhr) {
+                console.log('Processing');
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                jQuery('div[id=graph_container]').html('Error occured.Please try later.');
+            },
             success: function (data)
             {
-               // alert(data);
-               // console.log(data);
+                console.log('Success');
                 jQuery('div[id=graph_container]').html(data);
+
             }
 
         });
+
     });
+
+//    function balance() {
+//        $.ajax({
+//            type: "GET",
+//            url: '/dashboard',
+//            success: function (data)
+//            {
+//                // alert(data);
+//                // console.log(data);
+//                jQuery('div[id=graph_container]').html(data);
+//            }
+//
+//        });
+//    }
 </script>
 @endsection

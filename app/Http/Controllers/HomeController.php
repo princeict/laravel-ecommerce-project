@@ -24,20 +24,22 @@ class HomeController extends Controller {
     public function index() {
         return view('admin.home.homeContent');
     }
-
-    public function get_product_price() {
-        $products = DB::table('products')
-                ->select('productPrice')
-                ->get();
-
-        $point_value = array();
-        foreach ($products as $item) {
-            array_push($point_value, $item->productPrice);
-        }
-        
-       dd($point_value);
-
-        return view('admin.home.get_product_price', compact('point_value'));
-    }
-
+    
+//    public function get_product_price() {
+//        $products = DB::table('products')
+//                ->select('productPrice')
+//                ->get();
+//        //json_encode($products);
+//        $point_value = array();
+//        foreach ($products as $item) {
+//            array_push($point_value, $item->productPrice);
+//        }
+////        
+//       //dd(str_replace('"', '', json_encode($point_value)));
+//       
+//      // echo str_replace('"', '', json_encode($point_value)); 
+//
+////        return view('admin.home.get_product_price', compact('point_value'));
+//        return view('admin.home.get_product_price', compact('point_value'));
+//    }
 }

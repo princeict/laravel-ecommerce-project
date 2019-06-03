@@ -97,7 +97,7 @@
             </a>
         </div>
     </div>
-    <div class="col-sm-12">
+     <div class="col-sm-6">
         <div class="panel panel">
             <div class="panel-heading">
                 <div class="row">
